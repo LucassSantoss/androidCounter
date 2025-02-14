@@ -9,12 +9,24 @@
 
     <TextView
         android:id="@+id/contadorTv"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Olá mundo!"
+        android:text="0"
+        android:textSize="64sp"
+        app:layout_constraintBottom_toTopOf="@id/cliqueBt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <Button
+        android:id="@+id/cliqueBt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/clique"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
