@@ -11,42 +11,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
+import com.lucas.contador.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var cliqueBt: Button
-    private lateinit var contadorTv: TextView
-    private lateinit var inicialEt: EditText
+    private lateinit var activityMainBinding: ActivityMainBinding
     private var contador = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(activityMainBinding.root)
 
-        cliqueBt = findViewById(R.id.cliqueBt)
-        contadorTv = findViewById(R.id.contadorTv)
-        inicialEt = findViewById(R.id.inicial_et)
+        activityMainBinding.inicialEt.addTextChangedListener {
+            contador = it.toString().toInt()
+        }
 
-        /*
-        inicialEt.addTextChangedListener(object: TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // NSA
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                // NSA
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
-        })
-        */
-
-        inicialEt.addTextChangedListener { contador = it.toString().toInt() }
-
-        cliqueBt.setOnClickListener {
-            contadorTv.text = (++contador).toString()
+        activityMainBinding.cliqueBt.setOnClickListener {
+            activityMainBinding.contadorTv.text = (++contador).toString()
         }
     }
 }
