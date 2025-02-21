@@ -22,12 +22,16 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-        activityMainBinding.inicialEt.addTextChangedListener {
-            contador = it.toString().toInt()
+        with(activityMainBinding) {
+            activityMainBinding.inicialEt.addTextChangedListener {
+                contador = it.toString().toInt()
+            }
+
+            activityMainBinding.cliqueBt.setOnClickListener {
+                activityMainBinding.contadorTv.text = (++contador).toString()
+            }
         }
 
-        activityMainBinding.cliqueBt.setOnClickListener {
-            activityMainBinding.contadorTv.text = (++contador).toString()
-        }
+
     }
 }
