@@ -14,12 +14,13 @@ import androidx.core.widget.addTextChangedListener
 import com.lucas.contador.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var activityMainBinding: ActivityMainBinding
+    private val activityMainBinding: ActivityMainBinding by lazy {
+        ActivityMainBinding.inflate(layoutInflater)
+    }
     private var contador = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
         with(activityMainBinding) {
