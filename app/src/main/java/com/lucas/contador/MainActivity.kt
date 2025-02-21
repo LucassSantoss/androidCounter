@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -24,12 +25,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(activityMainBinding.root)
 
         with(activityMainBinding) {
-            activityMainBinding.inicialEt.addTextChangedListener {
-                contador = it.toString().toInt()
+            inicialCb.setOnClickListener {
+                contador = (it as CheckBox).text.toString().toInt()
             }
 
-            activityMainBinding.cliqueBt.setOnClickListener {
-                activityMainBinding.contadorTv.text = (++contador).toString()
+            cliqueBt.setOnClickListener {
+                contadorTv.text = (++contador).toString()
             }
         }
 
